@@ -1,0 +1,922 @@
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-10-08 07:19:15.577896', '2024-10-08 07:19:15.577904') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateTasks (20241008071905)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "tasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "status" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20241008071905') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2024-10-08 14:25:23 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/snminfinity/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/railties-7.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/snminfinity/.rbenv/versions/3.3.0/lib/ruby/gems/3.3.0/gems/railties-7.2.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.7ms | GC: 0.0ms)
+Completed 200 OK in 67ms (Views: 18.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2024-10-08 14:25:29 +0700
+Processing by TasksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."status" = ?[0m  [["status", "incomplete"]]
+  ↳ app/views/tasks/index.html.erb:13
+  Rendered tasks/index.html.erb within layouts/application (Duration: 30.9ms | GC: 2.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 533.2ms | GC: 118.9ms)
+Completed 200 OK in 712ms (Views: 537.3ms | ActiveRecord: 3.9ms (1 query, 0 cached) | GC: 143.0ms)
+
+
+Started GET "/manifest.json" for 127.0.0.1 at 2024-10-08 14:25:31 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/manifest.json"):
+  
+Started GET "/tasks" for 127.0.0.1 at 2024-10-08 14:28:09 +0700
+Processing by TasksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."status" = ?[0m  [["status", "incomplete"]]
+  ↳ app/views/tasks/index.html.erb:13
+  Rendered tasks/index.html.erb within layouts/application (Duration: 82.4ms | GC: 8.1ms)
+  Rendered layout layouts/application.html.erb (Duration: 86.6ms | GC: 8.1ms)
+Completed 200 OK in 89ms (Views: 87.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 8.1ms)
+
+
+Started GET "/manifest.json" for 127.0.0.1 at 2024-10-08 14:28:09 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/manifest.json"):
+  
+Started GET "/tasks" for 127.0.0.1 at 2024-10-08 14:28:27 +0700
+Processing by TasksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."status" = ?[0m  [["status", "incomplete"]]
+  ↳ app/views/tasks/index.html.erb:13
+  Rendered tasks/index.html.erb within layouts/application (Duration: 7.9ms | GC: 0.1ms)
+  Rendered layout layouts/application.html.erb (Duration: 33.7ms | GC: 0.1ms)
+Completed 200 OK in 58ms (Views: 39.0ms | ActiveRecord: 2.5ms (1 query, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/manifest.json" for 127.0.0.1 at 2024-10-08 14:28:27 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/manifest.json"):
+  
+Started GET "/tasks" for 127.0.0.1 at 2024-10-10 20:56:13 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TasksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.9ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."status" = ?[0m  [["status", "incomplete"]]
+  ↳ app/views/tasks/index.html.erb:13
+  Rendered tasks/index.html.erb within layouts/application (Duration: 36.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 253.5ms | GC: 59.7ms)
+Completed 200 OK in 362ms (Views: 262.1ms | ActiveRecord: 4.2ms (1 query, 0 cached) | GC: 62.2ms)
+
+
+Started GET "/manifest.json" for 127.0.0.1 at 2024-10-10 20:56:14 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/manifest.json"):
+  
+Started GET "/tasks/new" for 127.0.0.1 at 2024-10-10 21:05:14 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+AbstractController::ActionNotFound (The action 'new' could not be found for TasksController):
+  
+actionpack (7.2.1) lib/abstract_controller/base.rb:158:in `process'
+actionview (7.2.1) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.2.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (7.2.1) lib/action_controller/metal.rb:335:in `dispatch'
+actionpack (7.2.1) lib/action_dispatch/routing/route_set.rb:67:in `dispatch'
+actionpack (7.2.1) lib/action_dispatch/routing/route_set.rb:50:in `serve'
+actionpack (7.2.1) lib/action_dispatch/journey/router.rb:53:in `block in serve'
+actionpack (7.2.1) lib/action_dispatch/journey/router.rb:133:in `block in find_routes'
+actionpack (7.2.1) lib/action_dispatch/journey/router.rb:126:in `each'
+actionpack (7.2.1) lib/action_dispatch/journey/router.rb:126:in `find_routes'
+actionpack (7.2.1) lib/action_dispatch/journey/router.rb:34:in `serve'
+actionpack (7.2.1) lib/action_dispatch/routing/route_set.rb:896:in `call'
+rack (3.1.7) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.1.7) lib/rack/etag.rb:29:in `call'
+rack (3.1.7) lib/rack/conditional_get.rb:31:in `call'
+rack (3.1.7) lib/rack/head.rb:15:in `call'
+actionpack (7.2.1) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.2.1) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.2.1) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+activerecord (7.2.1) lib/active_record/migration.rb:674:in `call'
+actionpack (7.2.1) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (7.2.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.2.1) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (7.2.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (7.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (7.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.2.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (7.2.1) lib/rails/rack/logger.rb:41:in `call_app'
+railties (7.2.1) lib/rails/rack/logger.rb:29:in `call'
+sprockets-rails (3.5.2) lib/sprockets/rails/quiet_assets.rb:17:in `call'
+actionpack (7.2.1) lib/action_dispatch/middleware/remote_ip.rb:96:in `call'
+actionpack (7.2.1) lib/action_dispatch/middleware/request_id.rb:33:in `call'
+rack (3.1.7) lib/rack/method_override.rb:28:in `call'
+rack (3.1.7) lib/rack/runtime.rb:24:in `call'
+activesupport (7.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.2.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.2.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.2.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.2.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (7.2.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.1.7) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.2.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+railties (7.2.1) lib/rails/engine.rb:535:in `call'
+puma (6.4.3) lib/puma/configuration.rb:272:in `call'
+puma (6.4.3) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.3) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.3) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.3) lib/puma/server.rb:464:in `process_client'
+puma (6.4.3) lib/puma/server.rb:245:in `block in run'
+puma (6.4.3) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/favicon.ico" for 127.0.0.1 at 2024-10-10 21:05:15 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/manifest.json" for 127.0.0.1 at 2024-10-10 21:05:17 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/manifest.json"):
+  
+Started GET "/tasks/:id/complete" for 127.0.0.1 at 2024-10-10 21:06:07 +0700
+Processing by TasksController#complete as HTML
+  Parameters: {"id"=>":id"}
+  [1m[36mTask Load (1.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:18:in `complete'
+Completed 404 Not Found in 139ms (ActiveRecord: 7.5ms (1 query, 0 cached) | GC: 10.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Task with 'id'=:id):
+  
+app/controllers/tasks_controller.rb:18:in `complete'
+Started GET "/tasks" for 127.0.0.1 at 2024-10-10 21:06:17 +0700
+Processing by TasksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."status" = ?[0m  [["status", "incomplete"]]
+  ↳ app/views/tasks/index.html.erb:13
+  Rendered tasks/index.html.erb within layouts/application (Duration: 25.1ms | GC: 5.1ms)
+  Rendered layout layouts/application.html.erb (Duration: 145.7ms | GC: 12.6ms)
+Completed 200 OK in 170ms (Views: 151.1ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 12.6ms)
+
+
+Started GET "/manifest.json" for 127.0.0.1 at 2024-10-10 21:06:18 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/manifest.json"):
+  
+Started POST "/tasks" for 127.0.0.1 at 2024-10-10 21:06:26 +0700
+Processing by TasksController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "task"=>{"name"=>"drink"}, "commit"=>"Create Task"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:10:in `create'
+  [1m[36mTask Create (63.8ms)[0m  [1m[32mINSERT INTO "tasks" ("name", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["name", "drink"], ["status", "incomplete"], ["created_at", "2024-10-10 14:06:26.082863"], ["updated_at", "2024-10-10 14:06:26.082863"]]
+  ↳ app/controllers/tasks_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:10:in `create'
+Redirected to http://127.0.0.1:3000/tasks
+Completed 302 Found in 86ms (ActiveRecord: 65.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2024-10-10 21:06:26 +0700
+Processing by TasksController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."status" = ?[0m  [["status", "incomplete"]]
+  ↳ app/views/tasks/index.html.erb:13
+  Rendered tasks/index.html.erb within layouts/application (Duration: 5.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | GC: 0.0ms)
+Completed 200 OK in 13ms (Views: 11.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/tasks/1/complete" for 127.0.0.1 at 2024-10-10 21:06:26 +0700
+Processing by TasksController#complete as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:18:in `complete'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:19:in `complete'
+  [1m[36mTask Update (4.7ms)[0m  [1m[33mUPDATE "tasks" SET "status" = ?, "updated_at" = ? WHERE "tasks"."id" = ?[0m  [["status", "complete"], ["updated_at", "2024-10-10 14:06:27.013287"], ["id", 1]]
+  ↳ app/controllers/tasks_controller.rb:19:in `complete'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:19:in `complete'
+Redirected to http://127.0.0.1:3000/tasks
+Completed 302 Found in 17ms (ActiveRecord: 6.1ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2024-10-10 21:06:27 +0700
+Processing by TasksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."status" = ?[0m  [["status", "incomplete"]]
+  ↳ app/views/tasks/index.html.erb:13
+  Rendered tasks/index.html.erb within layouts/application (Duration: 4.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.2ms | GC: 0.0ms)
+Completed 200 OK in 11ms (Views: 9.7ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/tasks/1/complete" for 127.0.0.1 at 2024-10-10 21:06:31 +0700
+Processing by TasksController#complete as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:18:in `complete'
+Redirected to http://127.0.0.1:3000/tasks
+Completed 302 Found in 7ms (ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2024-10-10 21:06:31 +0700
+Processing by TasksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."status" = ?[0m  [["status", "incomplete"]]
+  ↳ app/views/tasks/index.html.erb:13
+  Rendered tasks/index.html.erb within layouts/application (Duration: 8.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 18.7ms | GC: 0.0ms)
+Completed 200 OK in 35ms (Views: 19.7ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 8.8ms)
+
+
+Started GET "/manifest.json" for 127.0.0.1 at 2024-10-10 21:07:09 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/manifest.json"):
+  
+Started GET "/task/:id/complete" for 127.0.0.1 at 2024-10-10 21:07:16 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/task/:id/complete"):
+  
+Started GET "/manifest.json" for 127.0.0.1 at 2024-10-10 21:07:22 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/manifest.json"):
+  
+Started POST "/tasks" for 127.0.0.1 at 2024-10-10 21:07:25 +0700
+Processing by TasksController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "task"=>{"name"=>"drink"}, "commit"=>"Create Task"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:10:in `create'
+  [1m[36mTask Create (3.7ms)[0m  [1m[32mINSERT INTO "tasks" ("name", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["name", "drink"], ["status", "incomplete"], ["created_at", "2024-10-10 14:07:25.641331"], ["updated_at", "2024-10-10 14:07:25.641331"]]
+  ↳ app/controllers/tasks_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:10:in `create'
+Redirected to http://127.0.0.1:3000/tasks
+Completed 302 Found in 13ms (ActiveRecord: 4.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2024-10-10 21:07:25 +0700
+Processing by TasksController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."status" = ?[0m  [["status", "incomplete"]]
+  ↳ app/views/tasks/index.html.erb:13
+  Rendered tasks/index.html.erb within layouts/application (Duration: 2.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | GC: 3.2ms)
+Completed 200 OK in 12ms (Views: 10.6ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 3.2ms)
+
+
+Started POST "/tasks" for 127.0.0.1 at 2024-10-10 21:07:29 +0700
+Processing by TasksController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "task"=>{"name"=>"movie"}, "commit"=>"Create Task"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:10:in `create'
+  [1m[36mTask Create (2.2ms)[0m  [1m[32mINSERT INTO "tasks" ("name", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["name", "movie"], ["status", "incomplete"], ["created_at", "2024-10-10 14:07:29.831240"], ["updated_at", "2024-10-10 14:07:29.831240"]]
+  ↳ app/controllers/tasks_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:10:in `create'
+Redirected to http://127.0.0.1:3000/tasks
+Completed 302 Found in 9ms (ActiveRecord: 2.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2024-10-10 21:07:29 +0700
+Processing by TasksController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."status" = ?[0m  [["status", "incomplete"]]
+  ↳ app/views/tasks/index.html.erb:13
+  Rendered tasks/index.html.erb within layouts/application (Duration: 2.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | GC: 0.0ms)
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/tasks/3/complete" for 127.0.0.1 at 2024-10-10 21:07:30 +0700
+Processing by TasksController#complete as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:18:in `complete'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:19:in `complete'
+  [1m[36mTask Update (2.2ms)[0m  [1m[33mUPDATE "tasks" SET "status" = ?, "updated_at" = ? WHERE "tasks"."id" = ?[0m  [["status", "complete"], ["updated_at", "2024-10-10 14:07:30.749850"], ["id", 3]]
+  ↳ app/controllers/tasks_controller.rb:19:in `complete'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:19:in `complete'
+Redirected to http://127.0.0.1:3000/tasks
+Completed 302 Found in 17ms (ActiveRecord: 2.6ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2024-10-10 21:07:30 +0700
+Processing by TasksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."status" = ?[0m  [["status", "incomplete"]]
+  ↳ app/views/tasks/index.html.erb:13
+  Rendered tasks/index.html.erb within layouts/application (Duration: 6.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | GC: 0.0ms)
+Completed 200 OK in 15ms (Views: 12.8ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/manifest.json" for 127.0.0.1 at 2024-10-10 21:07:40 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/manifest.json"):
+  
+Started GET "/task/:id/complete" for 127.0.0.1 at 2024-10-10 21:07:43 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/task/:id/complete"):
+  
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/task/:id/complete" for 127.0.0.1 at 2024-10-10 21:26:21 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/task/:id/complete"):
+  
+Started GET "/tasks" for 127.0.0.1 at 2024-10-10 21:26:24 +0700
+Processing by TasksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."status" = ?[0m  [["status", "incomplete"]]
+  ↳ app/views/tasks/index.html.erb:13
+  Rendered tasks/index.html.erb within layouts/application (Duration: 14.1ms | GC: 0.5ms)
+  Rendered layout layouts/application.html.erb (Duration: 123.4ms | GC: 2.5ms)
+Completed 200 OK in 233ms (Views: 126.1ms | ActiveRecord: 2.9ms (1 query, 0 cached) | GC: 22.8ms)
+
+
+Started GET "/manifest.json" for 127.0.0.1 at 2024-10-10 21:26:24 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/manifest.json"):
+  
+Started POST "/tasks" for 127.0.0.1 at 2024-10-10 21:26:28 +0700
+Processing by TasksController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "task"=>{"name"=>"movie"}, "commit"=>"Create Task"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:10:in `create'
+  [1m[36mTask Create (1.7ms)[0m  [1m[32mINSERT INTO "tasks" ("name", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["name", "movie"], ["status", "incomplete"], ["created_at", "2024-10-10 14:26:28.382904"], ["updated_at", "2024-10-10 14:26:28.382904"]]
+  ↳ app/controllers/tasks_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:10:in `create'
+Redirected to http://127.0.0.1:3000/tasks
+Completed 302 Found in 15ms (ActiveRecord: 3.2ms (1 query, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2024-10-10 21:26:28 +0700
+Processing by TasksController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."status" = ?[0m  [["status", "incomplete"]]
+  ↳ app/views/tasks/index.html.erb:13
+  Rendered tasks/index.html.erb within layouts/application (Duration: 8.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 11.1ms | GC: 0.0ms)
+Completed 200 OK in 13ms (Views: 11.8ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/tasks" for 127.0.0.1 at 2024-10-10 21:26:37 +0700
+Processing by TasksController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "task"=>{"name"=>"read"}, "commit"=>"Create Task"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:10:in `create'
+  [1m[36mTask Create (2.2ms)[0m  [1m[32mINSERT INTO "tasks" ("name", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["name", "read"], ["status", "incomplete"], ["created_at", "2024-10-10 14:26:37.857200"], ["updated_at", "2024-10-10 14:26:37.857200"]]
+  ↳ app/controllers/tasks_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:10:in `create'
+Redirected to http://127.0.0.1:3000/tasks
+Completed 302 Found in 10ms (ActiveRecord: 2.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2024-10-10 21:26:37 +0700
+Processing by TasksController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."status" = ?[0m  [["status", "incomplete"]]
+  ↳ app/views/tasks/index.html.erb:13
+  Rendered tasks/index.html.erb within layouts/application (Duration: 6.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | GC: 0.0ms)
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/tasks/2/complete" for 127.0.0.1 at 2024-10-10 21:26:40 +0700
+Processing by TasksController#complete as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:18:in `complete'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:19:in `complete'
+  [1m[36mTask Update (2.1ms)[0m  [1m[33mUPDATE "tasks" SET "status" = ?, "updated_at" = ? WHERE "tasks"."id" = ?[0m  [["status", "complete"], ["updated_at", "2024-10-10 14:26:40.301166"], ["id", 2]]
+  ↳ app/controllers/tasks_controller.rb:19:in `complete'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:19:in `complete'
+Redirected to http://127.0.0.1:3000/tasks
+Completed 302 Found in 27ms (ActiveRecord: 2.5ms (2 queries, 0 cached) | GC: 7.5ms)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2024-10-10 21:26:40 +0700
+Processing by TasksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."status" = ?[0m  [["status", "incomplete"]]
+  ↳ app/views/tasks/index.html.erb:13
+  Rendered tasks/index.html.erb within layouts/application (Duration: 4.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | GC: 0.0ms)
+Completed 200 OK in 11ms (Views: 7.8ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 2.0ms)
+
+
+Started GET "/tasks/complete" for 127.0.0.1 at 2024-10-10 21:27:02 +0700
+  
+AbstractController::ActionNotFound (The action 'show' could not be found for TasksController):
+  
+actionpack (7.2.1) lib/abstract_controller/base.rb:158:in `process'
+actionview (7.2.1) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.2.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (7.2.1) lib/action_controller/metal.rb:335:in `dispatch'
+actionpack (7.2.1) lib/action_dispatch/routing/route_set.rb:67:in `dispatch'
+actionpack (7.2.1) lib/action_dispatch/routing/route_set.rb:50:in `serve'
+actionpack (7.2.1) lib/action_dispatch/journey/router.rb:53:in `block in serve'
+actionpack (7.2.1) lib/action_dispatch/journey/router.rb:133:in `block in find_routes'
+actionpack (7.2.1) lib/action_dispatch/journey/router.rb:126:in `each'
+actionpack (7.2.1) lib/action_dispatch/journey/router.rb:126:in `find_routes'
+actionpack (7.2.1) lib/action_dispatch/journey/router.rb:34:in `serve'
+actionpack (7.2.1) lib/action_dispatch/routing/route_set.rb:896:in `call'
+rack (3.1.7) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.1.7) lib/rack/etag.rb:29:in `call'
+rack (3.1.7) lib/rack/conditional_get.rb:31:in `call'
+rack (3.1.7) lib/rack/head.rb:15:in `call'
+actionpack (7.2.1) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.2.1) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.2.1) lib/action_dispatch/middleware/cookies.rb:704:in `call'
+activerecord (7.2.1) lib/active_record/migration.rb:674:in `call'
+actionpack (7.2.1) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (7.2.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.2.1) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (7.2.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (7.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (7.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.2.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (7.2.1) lib/rails/rack/logger.rb:41:in `call_app'
+railties (7.2.1) lib/rails/rack/logger.rb:29:in `call'
+sprockets-rails (3.5.2) lib/sprockets/rails/quiet_assets.rb:17:in `call'
+actionpack (7.2.1) lib/action_dispatch/middleware/remote_ip.rb:96:in `call'
+actionpack (7.2.1) lib/action_dispatch/middleware/request_id.rb:33:in `call'
+rack (3.1.7) lib/rack/method_override.rb:28:in `call'
+rack (3.1.7) lib/rack/runtime.rb:24:in `call'
+activesupport (7.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.2.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.2.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.2.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.2.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (7.2.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.1.7) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.2.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+railties (7.2.1) lib/rails/engine.rb:535:in `call'
+puma (6.4.3) lib/puma/configuration.rb:272:in `call'
+puma (6.4.3) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.3) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.3) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.3) lib/puma/server.rb:464:in `process_client'
+puma (6.4.3) lib/puma/server.rb:245:in `block in run'
+puma (6.4.3) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/manifest.json" for 127.0.0.1 at 2024-10-10 21:27:06 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/manifest.json"):
+  
+Started GET "/tasks/2/complete" for 127.0.0.1 at 2024-10-10 21:28:29 +0700
+Processing by TasksController#complete as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:18:in `complete'
+Redirected to http://127.0.0.1:3000/tasks
+Completed 302 Found in 9ms (ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2024-10-10 21:28:29 +0700
+Processing by TasksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."status" = ?[0m  [["status", "incomplete"]]
+  ↳ app/views/tasks/index.html.erb:13
+  Rendered tasks/index.html.erb within layouts/application (Duration: 10.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 30.0ms | GC: 0.0ms)
+Completed 200 OK in 33ms (Views: 31.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/manifest.json" for 127.0.0.1 at 2024-10-10 21:28:30 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/manifest.json"):
+  
+Started GET "/tasks" for 127.0.0.1 at 2024-10-10 21:30:14 +0700
+Processing by TasksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."status" = ?[0m  [["status", "incomplete"]]
+  ↳ app/views/tasks/index.html.erb:13
+  Rendered tasks/index.html.erb within layouts/application (Duration: 7.4ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 33.8ms | GC: 0.8ms)
+Completed 200 OK in 51ms (Views: 36.0ms | ActiveRecord: 2.1ms (1 query, 0 cached) | GC: 1.1ms)
+
+
+Started GET "/manifest.json" for 127.0.0.1 at 2024-10-10 21:30:15 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/manifest.json"):
+  
+Started GET "/tasks" for 127.0.0.1 at 2024-10-10 21:30:45 +0700
+Processing by TasksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."status" = ?[0m  [["status", "incomplete"]]
+  ↳ app/views/tasks/index.html.erb:13
+  Rendered tasks/index.html.erb within layouts/application (Duration: 4.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 32.9ms | GC: 5.0ms)
+Completed 200 OK in 51ms (Views: 35.4ms | ActiveRecord: 5.5ms (1 query, 0 cached) | GC: 6.2ms)
+
+
+Started GET "/manifest.json" for 127.0.0.1 at 2024-10-10 21:30:45 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/manifest.json"):
+  
+Started GET "/tasks" for 127.0.0.1 at 2024-10-10 21:35:24 +0700
+Processing by TasksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  Rendered tasks/index.html.erb within layouts/application (Duration: 2.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.3ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 3.5ms (0 queries, 0 cached) | GC: 0.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil):
+
+Causes:
+NoMethodError (undefined method `each' for nil)
+    10: 
+    11: <h2>Incomplete</h2>
+    12: <ul>
+    13:   <% @incomplete_tasks.each do |task| %>
+    14:     <li>
+    15:       <%= task.name %> 
+    16:       <%= link_to 'Mark as Complete', complete_task_path(task), method: :patch, data: { confirm: 'Are you sure?' } %>
+  
+app/views/tasks/index.html.erb:13
+Started GET "/tasks" for 127.0.0.1 at 2024-10-10 21:36:37 +0700
+  
+SyntaxError (/Users/snminfinity/Todo/config/routes.rb:6: syntax error, unexpected `end'):
+  
+config/routes.rb:6: syntax error, unexpected `end'
+Started GET "/tasks" for 127.0.0.1 at 2024-10-10 21:37:02 +0700
+Processing by TasksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  Rendered tasks/index.html.erb within layouts/application (Duration: 2.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.0ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 2.1ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil):
+
+Causes:
+NoMethodError (undefined method `each' for nil)
+    10: 
+    11: <h2>Incomplete</h2>
+    12: <ul>
+    13:   <% @incomplete_tasks.each do |task| %>
+    14:     <li>
+    15:       <%= task.name %> 
+    16:       <%= link_to 'Mark as Complete', complete_task_path(task), method: :patch, data: { confirm: 'Are you sure?' } %>
+  
+app/views/tasks/index.html.erb:13
+Started GET "/tasks" for 127.0.0.1 at 2024-10-10 21:37:41 +0700
+Processing by TasksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  Rendered tasks/index.html.erb within layouts/application (Duration: 10.1ms | GC: 4.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | GC: 4.0ms)
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 4.5ms (0 queries, 0 cached) | GC: 12.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil):
+
+Causes:
+NoMethodError (undefined method `each' for nil)
+     9: <% end %>
+    10: <h2>Incomplete</h2>
+    11: <ul>
+    12:   <% @incomplete_tasks.each do |task| %>
+    13:     <li>
+    14:       <%= task.name %> 
+    15:       <%= link_to 'Mark as Complete', complete_task_path(task), method: :patch, data: { confirm: 'Are you sure?' } %>
+  
+app/views/tasks/index.html.erb:12
+Started GET "/tasks" for 127.0.0.1 at 2024-10-10 21:39:56 +0700
+Processing by TasksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."status" = ?[0m  [["status", "incomplete"]]
+  ↳ app/views/tasks/index.html.erb:12
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."status" = ?[0m  [["status", "complete"]]
+  ↳ app/views/tasks/index.html.erb:22
+  Rendered tasks/index.html.erb within layouts/application (Duration: 7.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 56.8ms | GC: 4.0ms)
+Completed 200 OK in 81ms (Views: 66.2ms | ActiveRecord: 2.9ms (2 queries, 0 cached) | GC: 7.6ms)
+
+
+Started GET "/manifest.json" for 127.0.0.1 at 2024-10-10 21:39:56 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/manifest.json"):
+  
+Started GET "/tasks/4/complete" for 127.0.0.1 at 2024-10-10 21:46:34 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/tasks/4/complete"):
+  
+Started GET "/tasks" for 127.0.0.1 at 2024-10-10 21:46:38 +0700
+Processing by TasksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (1.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."status" = ?[0m  [["status", "incomplete"]]
+  ↳ app/views/tasks/index.html.erb:12
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."status" = ?[0m  [["status", "complete"]]
+  ↳ app/views/tasks/index.html.erb:22
+  Rendered tasks/index.html.erb within layouts/application (Duration: 8.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 14.0ms | GC: 0.0ms)
+Completed 200 OK in 17ms (Views: 13.2ms | ActiveRecord: 1.5ms (2 queries, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/manifest.json" for 127.0.0.1 at 2024-10-10 21:46:38 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/manifest.json"):
+  
+Started GET "/tasks/4/complete" for 127.0.0.1 at 2024-10-10 21:46:40 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/tasks/4/complete"):
+  
+Started GET "/tasks" for 127.0.0.1 at 2024-10-10 21:46:42 +0700
+Processing by TasksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."status" = ?[0m  [["status", "incomplete"]]
+  ↳ app/views/tasks/index.html.erb:12
+  [1m[36mTask Load (0.9ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."status" = ?[0m  [["status", "complete"]]
+  ↳ app/views/tasks/index.html.erb:22
+  Rendered tasks/index.html.erb within layouts/application (Duration: 9.8ms | GC: 0.6ms)
+  Rendered layout layouts/application.html.erb (Duration: 13.6ms | GC: 0.6ms)
+Completed 200 OK in 16ms (Views: 13.8ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/manifest.json" for 127.0.0.1 at 2024-10-10 21:46:42 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/manifest.json"):
+  
+Started GET "/tasks/4/complete" for 127.0.0.1 at 2024-10-10 21:46:55 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/tasks/4/complete"):
+  
+Started GET "/tasks" for 127.0.0.1 at 2024-10-10 21:46:56 +0700
+Processing by TasksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."status" = ?[0m  [["status", "incomplete"]]
+  ↳ app/views/tasks/index.html.erb:12
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."status" = ?[0m  [["status", "complete"]]
+  ↳ app/views/tasks/index.html.erb:22
+  Rendered tasks/index.html.erb within layouts/application (Duration: 8.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 14.1ms | GC: 0.0ms)
+Completed 200 OK in 16ms (Views: 14.3ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/manifest.json" for 127.0.0.1 at 2024-10-10 21:46:57 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/manifest.json"):
+  
+Started GET "/tasks/4/complete" for 127.0.0.1 at 2024-10-10 21:47:20 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/tasks/4/complete"):
+  
+Started GET "/tasks/4/complete" for 127.0.0.1 at 2024-10-10 21:49:43 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/tasks/4/complete"):
+  
+Started GET "/manifest.json" for 127.0.0.1 at 2024-10-10 21:49:46 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/manifest.json"):
+  
+Started GET "/tasks" for 127.0.0.1 at 2024-10-10 21:49:47 +0700
+Processing by TasksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  Rendered tasks/index.html.erb within layouts/application (Duration: 2.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.3ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 5.8ms (0 queries, 0 cached) | GC: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil):
+
+Causes:
+NoMethodError (undefined method `each' for nil)
+     9: <% end %>
+    10: <h2>Incomplete</h2>
+    11: <ul>
+    12:   <% @incomplete_tasks.each do |task| %>
+    13:     <li>
+    14:       <%= task.name %> 
+    15:       <%= link_to 'Mark as Complete', complete_task_path(task), method: :patch, data: { confirm: 'Are you sure?' } %>
+  
+app/views/tasks/index.html.erb:12
+Started GET "/tasks" for 127.0.0.1 at 2024-10-10 21:50:26 +0700
+Processing by TasksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."status" = ?[0m  [["status", "incomplete"]]
+  ↳ app/views/tasks/index.html.erb:13
+  Rendered tasks/index.html.erb within layouts/application (Duration: 8.3ms | GC: 2.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 47.7ms | GC: 3.6ms)
+Completed 200 OK in 67ms (Views: 56.0ms | ActiveRecord: 2.5ms (1 query, 0 cached) | GC: 4.5ms)
+
+
+Started GET "/manifest.json" for 127.0.0.1 at 2024-10-10 21:50:26 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/manifest.json"):
+  
+Started GET "/tasks" for 127.0.0.1 at 2024-10-10 21:52:52 +0700
+Processing by TasksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  Rendered tasks/index.html.erb within layouts/application (Duration: 2.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.7ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 2.3ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `text' for an instance of ActionView::Helpers::FormBuilder):
+
+Causes:
+NoMethodError (undefined method `text' for an instance of ActionView::Helpers::FormBuilder)
+    3: <%= form_with(model: @task, local: true) do |form| %>
+    4:   <div>
+    5:     <%= form.label :name %>
+    6:     <%= form.text :name %>
+    7:   </div>
+    8:   <%= form.submit 'Create Todo' %>
+    9: <% end %>
+  
+app/views/tasks/index.html.erb:6
+app/views/tasks/index.html.erb:3
+Started GET "/tasks" for 127.0.0.1 at 2024-10-10 21:52:57 +0700
+Processing by TasksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."status" = ?[0m  [["status", "incomplete"]]
+  ↳ app/views/tasks/index.html.erb:13
+  Rendered tasks/index.html.erb within layouts/application (Duration: 8.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 50.2ms | GC: 0.0ms)
+Completed 200 OK in 74ms (Views: 56.2ms | ActiveRecord: 9.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/manifest.json" for 127.0.0.1 at 2024-10-10 21:52:57 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/manifest.json"):
+  
+Started GET "/tasks" for 127.0.0.1 at 2024-10-10 21:57:29 +0700
+Processing by TasksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  Rendered tasks/index.html.erb within layouts/application (Duration: 1.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.3ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 1.6ms (0 queries, 0 cached) | GC: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `text_x_field' for an instance of ActionView::Helpers::FormBuilder):
+
+Causes:
+NoMethodError (undefined method `text_x_field' for an instance of ActionView::Helpers::FormBuilder)
+    3: <%= form_with(model: @task, local: true) do |form| %>
+    4:   <div>
+    5:     <%= form.label :name %>
+    6:     <%= form.text_x_field :name %>
+    7:   </div>
+    8:   <%= form.submit 'Create Todo' %>
+    9: <% end %>
+  
+app/views/tasks/index.html.erb:6
+app/views/tasks/index.html.erb:3
+Started GET "/tasks" for 127.0.0.1 at 2024-10-10 21:57:46 +0700
+Processing by TasksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."status" = ?[0m  [["status", "incomplete"]]
+  ↳ app/views/tasks/index.html.erb:13
+  Rendered tasks/index.html.erb within layouts/application (Duration: 10.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 50.5ms | GC: 0.0ms)
+Completed 200 OK in 69ms (Views: 53.4ms | ActiveRecord: 5.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/manifest.json" for 127.0.0.1 at 2024-10-10 21:57:46 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/manifest.json"):
+  
+Started GET "/tasks" for 127.0.0.1 at 2024-10-10 21:57:47 +0700
+Processing by TasksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."status" = ?[0m  [["status", "incomplete"]]
+  ↳ app/views/tasks/index.html.erb:13
+  Rendered tasks/index.html.erb within layouts/application (Duration: 4.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | GC: 0.1ms)
+Completed 200 OK in 12ms (Views: 10.7ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/manifest.json" for 127.0.0.1 at 2024-10-10 21:57:47 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/manifest.json"):
+  
+Started GET "/tasks" for 127.0.0.1 at 2024-10-10 22:06:29 +0700
+Processing by TasksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (6.8ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."status" = ?[0m  [["status", "incomplete"]]
+  ↳ app/views/tasks/index.html.erb:13
+  Rendered tasks/index.html.erb within layouts/application (Duration: 26.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 81.7ms | GC: 11.7ms)
+Completed 200 OK in 108ms (Views: 91.8ms | ActiveRecord: 6.8ms (1 query, 0 cached) | GC: 11.7ms)
+
+
+Started GET "/manifest.json" for 127.0.0.1 at 2024-10-10 22:06:29 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/manifest.json"):
+  
+Started GET "/tasks/2/complete" for 127.0.0.1 at 2024-10-10 22:06:43 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/tasks/2/complete"):
+  
+Started GET "/tasks/1/complete" for 127.0.0.1 at 2024-10-10 22:06:49 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/tasks/1/complete"):
+  
+Started GET "/manifest.json" for 127.0.0.1 at 2024-10-10 22:07:02 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/manifest.json"):
+  
+Started POST "/tasks" for 127.0.0.1 at 2024-10-10 22:07:05 +0700
+Processing by TasksController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "task"=>{"name"=>""}, "commit"=>"Create Todo"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tasks_controller.rb:10:in `create'
+  [1m[36mTask Create (7.1ms)[0m  [1m[32mINSERT INTO "tasks" ("name", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["name", ""], ["status", "incomplete"], ["created_at", "2024-10-10 15:07:05.925576"], ["updated_at", "2024-10-10 15:07:05.925576"]]
+  ↳ app/controllers/tasks_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tasks_controller.rb:10:in `create'
+Redirected to http://127.0.0.1:3000/tasks
+Completed 302 Found in 16ms (ActiveRecord: 7.9ms (1 query, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2024-10-10 22:07:05 +0700
+Processing by TasksController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."status" = ?[0m  [["status", "incomplete"]]
+  ↳ app/views/tasks/index.html.erb:13
+  Rendered tasks/index.html.erb within layouts/application (Duration: 15.8ms | GC: 0.6ms)
+  Rendered layout layouts/application.html.erb (Duration: 20.7ms | GC: 0.6ms)
+Completed 200 OK in 41ms (Views: 38.8ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/tasks/6/complete" for 127.0.0.1 at 2024-10-10 22:07:10 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/tasks/6/complete"):
+  
+Started GET "/tasks" for 127.0.0.1 at 2024-10-10 22:07:12 +0700
+Processing by TasksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."status" = ?[0m  [["status", "incomplete"]]
+  ↳ app/views/tasks/index.html.erb:13
+  Rendered tasks/index.html.erb within layouts/application (Duration: 3.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | GC: 0.0ms)
+Completed 200 OK in 12ms (Views: 7.5ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/manifest.json" for 127.0.0.1 at 2024-10-10 22:07:12 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/manifest.json"):
+  
